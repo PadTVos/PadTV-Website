@@ -1,8 +1,6 @@
-# PadTV 0.3 – System Core
+# PadTV 0.5 – Android Runtime
 
-PadTV je distribuce pro amd64 založená na Debianu 13. Verze systému je `0.3`,
-název vydání `System Core`; balíčky mají číslo `0.3.3`, aby aktualizovaly dřívější
-vývojové sestavení 0.3.1. Stav praktického ověření je v [validation.md](validation.md).
+PadTV je distribuce pro amd64 založená na Debianu 13. Systémové balíčky mají verzi 0.5.0 a PadBridge 0.2.0. Základ System Core, Wayland, systémové API a instalátor zůstávají zachované. Stav ověření: [validation.md](https://github.com/PadTVos/PadTV-OS/blob/main/docs/validation.md).
 
 ## Moduly a hranice
 
@@ -14,7 +12,7 @@ vývojové sestavení 0.3.1. Stav praktického ověření je v [validation.md](v
 
 Identita v `/etc/os-release` a `/usr/lib/os-release` patří PadTV. Debianí soubory
 jsou zachované pomocí `dpkg-divert`; odstranění `padtv-core` je obnoví.
-`ID=padtv`, `ID_LIKE=debian`, `VERSION_ID=0.3`, `DEBIAN_VERSION=13`.
+`ID=padtv`, `ID_LIKE=debian`, `VERSION_ID=0.5`, `DEBIAN_VERSION=13`.
 
 Uživatelská knihovna a profily webových aplikací leží v
 `~/.local/share/padtv/library`; nastavení v `~/.config/padtv`. YouTube je výchozí
@@ -113,7 +111,7 @@ API Windows ani Linuxu. Pro celý systém slouží QEMU nebo Live USB z výsledn
 `padtv/store_ui.py` provádí operace asynchronně a mění knihovnu až po ověřeném
 výsledku. Webové profily a uživatelské Flatpaky jsou oddělené od APT součástí OS.
 Podrobnosti zdrojů a pěti připravených repozitářů jsou v
-[architektuře Store](github-and-store.md).
+[architektuře Store](https://github.com/PadTVos/PadTV-OS/blob/main/docs/github-and-store.md).
 
 Waydroid zůstává samostatnou službou a APK mají vlastní instalační cestu.
 Příprava ve virtuálním stroji nastavuje SwiftShader a softwarový gralloc;
@@ -122,7 +120,7 @@ APK neznamená certifikaci Google TV ani zaručenou podporu DRM.
 
 Spánek využívá logind; stabilní návrat grafiky a zařízení zatím není potvrzený.
 Windows VM vypíná emulované S3/S4, protože S3 resetuje prostředky VirtIO GPU.
-Podrobný průběh a omezení s2idle jsou v [protokolu ověření](validation.md).
+Podrobný průběh a omezení s2idle jsou v [protokolu ověření](https://github.com/PadTVos/PadTV-OS/blob/main/docs/validation.md).
 
 ## Primární technické podklady
 
@@ -131,3 +129,7 @@ Podrobný průběh a omezení s2idle jsou v [protokolu ověření](validation.md
 - [Calamares 3.3.14: konfigurace modulů](https://github.com/calamares/calamares/tree/v3.3.14/src/modules)
 - [Chromium: identifikace linuxových oken](https://chromium.googlesource.com/chromium/src/+/HEAD/chrome/browser/shell_integration_linux.cc)
 - [Waydroid ve virtuálním stroji](https://docs.waydro.id/faq/get-waydroid-to-work-through-a-vm)
+
+## PadBridge 0.2
+
+Samostatný balíček `/usr/lib/padbridge`, CLI `/usr/bin/padbridge`. Ověřené APK a jejich cache jsou v `~/.local/share/padbridge/packages`, soukromá data v `data/PACKAGE`, oprávnění a logy v oddělených adresářích. Waydroid používá vlastní stávající úložiště. ART je nedostupný backend; Enjarify zůstává funkční experimentální cesta. [Rozsah implementace](https://github.com/PadTVos/PadBridge/blob/main/docs/runtime-0.2.md).

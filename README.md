@@ -1,6 +1,6 @@
 # PadTV-Website
 
-Dokumentace PadTV 0.4 – Android Compatibility.
+Dokumentace PadTV 0.5 – Android Runtime.
 
 - [Architektura](docs/system-core.md)
 - [Store a repozitáře](docs/github-and-store.md)

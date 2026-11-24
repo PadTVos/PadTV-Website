@@ -88,3 +88,7 @@ instalují tlačítkem ve Store, podpis se ověřuje před instalací. PadBridge
 datový prostor a typ manifestu; nemigruje ani nemaže Waydroid. Oficiální položky
 YouTube TV / Netflix stále otevírají Google Play v záložním Waydroidu. Samotné
 otevření obchodu nikdy nevytvoří záznam o úspěšné instalaci.
+
+## Vydání 0.5
+
+Store nabízí PadBridge jako preferovanou experimentální cestu pro místní APK, split APK a `.apks`. Waydroid a Google Play mají oddělená data. Každá položka katalogu obsahuje stav kompatibility. Ve správě PadBridge aplikace je diagnostika API, nativních knihoven a posledního běhu. Přesný stav je v [ověření 0.5](https://github.com/PadTVos/PadTV-OS/blob/main/docs/validation-0.5.md).
