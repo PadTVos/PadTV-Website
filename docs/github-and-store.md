@@ -3,32 +3,33 @@
 Organizace: [PadTVos](https://github.com/PadTVos). Lokální příprava je v adresáři
 `repositories/`; její obsah vzniká skriptem `scripts/prepare-repositories.py`.
 Publikace používá přihlášený účet se správcovským oprávněním organizace.
-Všech pět níže uvedených repozitářů bylo zveřejněno 24. listopadu 2026.
+Všech šest repozitářů je veřejných v organizaci PadTVos.
 
 | Veřejný repozitář | Obsah a hranice |
 | --- | --- |
 | [PadTV-OS](https://github.com/PadTVos/PadTV-OS) | distribuce, systémové API, Wayland, instalátor, sestavení ISO, integrace UI |
+| [PadBridge](https://github.com/PadTVos/PadBridge) | experimentální Android runtime, framework a databáze kompatibility |
 | [PadTV-Updates](https://github.com/PadTVos/PadTV-Updates) | metadata vydání, SHA-256, příprava odděleného podpisu; žádné soukromé klíče |
 | [PadTV-Store](https://github.com/PadTVos/PadTV-Store) | `padtv_store`: validátor katalogu, poskytovatelé, JSON CLI; integrační Qt frontend |
 | [PadTV-Apps](https://github.com/PadTVos/PadTV-Apps) | katalog JSON, jeho schéma a kontrola změn |
 | [PadTV-Website](https://github.com/PadTVos/PadTV-Website) | uživatelská a vývojová dokumentace, podklady pro budoucí web |
 
-OS má pro sestavení 0.3 lokální kopii Store a katalogu. Každé vydání tak používá
+OS má pro sestavení 0.6 lokální kopii Store a katalogu. Každé vydání tak používá
 konkrétní ověřenou verzi; start televize není závislý na dostupnosti GitHubu.
 Další vývoj může kopie nahradit verzovanými balíčky, bez změny systémového API.
 ISO, virtuální disky, profily aplikací, Wi-Fi údaje a uživatelská data se do
-veřejných repozitářů nekopírují. Distribuce ISO potřebuje samostatný hosting
-s dostatečným limitem velikosti souboru; ISO nepatří do Git historie.
+Git historie nekopírují. Testovací ISO 0.6 je v GitHub Releases ve dvou částech
+kvůli limitu 2 GiB na soubor; spojovací skript ověřuje SHA-256 částí i celého ISO.
 
 ## Poskytovatelé aplikací
 
-| Zdroj | Stav v 0.3 | Instalace a data |
+| Zdroj | Stav v 0.6 | Instalace a data |
 | --- | --- | --- |
 | Web Apps | implementováno | manifest a samostatný profil Chromium v uživatelské knihovně |
 | Flathub | implementován poskytovatel | `flatpak --user`, data v `~/.var/app`, ověření výsledku instalace |
 | Google Play | oficiální TV katalog a předání instalace | Waydroid GAPPS, uživatelské přihlášení, ověření přes skutečný inventář Androidu |
 | Debian APT | skutečný inventář systémových aplikací | správu systému zajišťuje APT; Store neodstraňuje základní balíčky |
-| GitHub | rozhraní zdroje vyhrazeno, nepřipojeno | vlastní vydání po zavedení ověřování podpisů |
+| GitHub | funkční stahování vlastních APK z Releases | připnutý hash, velikost a podpis, instalace přes PadBridge |
 | PadTV Repository | rozhraní zdroje vyhrazeno, nepřipojeno | komunitní balíčky po nastavení důvěryhodného podepsaného repozitáře |
 
 Katalog není vykonatelný skript. Obsahuje identifikátory, HTTPS adresy a metadata.
@@ -92,3 +93,19 @@ otevření obchodu nikdy nevytvoří záznam o úspěšné instalaci.
 ## Vydání 0.5
 
 Store nabízí PadBridge jako preferovanou experimentální cestu pro místní APK, split APK a `.apks`. Waydroid a Google Play mají oddělená data. Každá položka katalogu obsahuje stav kompatibility. Ve správě PadBridge aplikace je diagnostika API, nativních knihoven a posledního běhu. Přesný stav je v [ověření 0.5](https://github.com/PadTVos/PadTV-OS/blob/main/docs/validation-0.5.md).
+
+## Vydání 0.6
+
+GitHub provider nyní skutečně stahuje APK z konkrétního vydání. V katalogu je
+[PadBridge Runtime Probe](https://github.com/PadTVos/PadBridge/releases/tag/store-test-1),
+vlastní testovací aplikace s původním Java DEX a XML. Pevná HTTPS adresa, velikost,
+SHA-256 a otisk podpisu jsou součástí katalogu vydaného se systémem. Přesměrování
+je omezené na GitHub servery; před instalací se ověřuje také package ID a skutečný
+výsledek instalace. Odinstalace zachová soukromá data. Vzdálený katalog sám nemůže
+podstrčit nový důvěryhodný hash. Není spouštěn stažený shellový instalátor.
+
+Detaily aplikací zobrazují pět stavů kompatibility a konkrétní důvod omezení.
+Podporované místní kontejnery zahrnují APKM. Vzhled, logo a pozadí jsou zachované,
+ikony pocházejí z dodané sady PadTV-V6. Úvodní reklamní slogany byly odstraněné.
+YouTube/Netflix APK dodané pro soukromé testy nejsou publikované; Google Play
+zůstává odděleným zdrojem a vyžaduje kompatibilní Android prostředí.
