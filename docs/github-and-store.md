@@ -80,3 +80,11 @@ vývojová fáze; žádný nepodepsaný vzdálený manifest se nyní automaticky
 - [Waydroid a Google Play](https://docs.waydro.id/usage/install-and-run-android-applications)
 - [Registrace Waydroidu u Google](https://docs.waydro.id/faq/google-play-certification)
 - [Netflix a certifikace zařízení](https://help.netflix.com/en/node/57688)
+
+## PadBridge / PadTV 0.4
+
+Šestý repozitář: [PadBridge](https://github.com/PadTVos/PadBridge). Místní APK se
+instalují tlačítkem ve Store, podpis se ověřuje před instalací. PadBridge má vlastní
+datový prostor a typ manifestu; nemigruje ani nemaže Waydroid. Oficiální položky
+YouTube TV / Netflix stále otevírají Google Play v záložním Waydroidu. Samotné
+otevření obchodu nikdy nevytvoří záznam o úspěšné instalaci.
