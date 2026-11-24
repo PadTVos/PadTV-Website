@@ -3,14 +3,15 @@
 Organizace: [PadTVos](https://github.com/PadTVos). Lokální příprava je v adresáři
 `repositories/`; její obsah vzniká skriptem `scripts/prepare-repositories.py`.
 Publikace používá přihlášený účet se správcovským oprávněním organizace.
+Všech pět níže uvedených repozitářů bylo zveřejněno 24. listopadu 2026.
 
 | Veřejný repozitář | Obsah a hranice |
 | --- | --- |
-| PadTV-OS | distribuce, systémové API, Wayland, instalátor, sestavení ISO, integrace UI |
-| PadTV-Updates | metadata vydání, SHA-256, příprava odděleného podpisu; žádné soukromé klíče |
-| PadTV-Store | `padtv_store`: validátor katalogu, poskytovatelé, JSON CLI; integrační Qt frontend |
-| PadTV-Apps | katalog JSON, jeho schéma a kontrola změn |
-| PadTV-Website | uživatelská a vývojová dokumentace, podklady pro budoucí web |
+| [PadTV-OS](https://github.com/PadTVos/PadTV-OS) | distribuce, systémové API, Wayland, instalátor, sestavení ISO, integrace UI |
+| [PadTV-Updates](https://github.com/PadTVos/PadTV-Updates) | metadata vydání, SHA-256, příprava odděleného podpisu; žádné soukromé klíče |
+| [PadTV-Store](https://github.com/PadTVos/PadTV-Store) | `padtv_store`: validátor katalogu, poskytovatelé, JSON CLI; integrační Qt frontend |
+| [PadTV-Apps](https://github.com/PadTVos/PadTV-Apps) | katalog JSON, jeho schéma a kontrola změn |
+| [PadTV-Website](https://github.com/PadTVos/PadTV-Website) | uživatelská a vývojová dokumentace, podklady pro budoucí web |
 
 OS má pro sestavení 0.3 lokální kopii Store a katalogu. Každé vydání tak používá
 konkrétní ověřenou verzi; start televize není závislý na dostupnosti GitHubu.
