@@ -1,0 +1,6 @@
+__pycache__/
+.venv/
+*.iso
+*.qcow2
+*.key
+.padtv-export.json
