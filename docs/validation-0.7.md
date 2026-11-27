@@ -34,6 +34,12 @@ komponentami PadBridge 0.4 a doplněnými testovacími závislostmi. BIOS/UEFI a
 instalace byly navíc provedeny se skutečným ISO PadTV 0.7. Testy neoslabují
 sandbox a Waydroid během Android testů neběžel.
 
+CI běží v Debian 13 kontejneru na Ubuntu hostu. Chromium dostává pouze cílené
+oprávnění AppArmor vytvořit vlastní user namespace podle
+[postupu upstream Chromium](https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md).
+Chromium sandbox i bubblewrap zůstávají zapnuté; nepoužívá se `--no-sandbox`.
+Test zvuku ověřuje skutečný PulseAudio server, místní VM PipeWire-pulse.
+
 ## Skutečně ověřené nové funkce
 
 - Originální DEX volá MediaExtractor a MediaCodec: celé H.264 video, AAC,
@@ -93,7 +99,7 @@ události, kompletnější framework a témata, AndroidX/Compose/Leanback, potř
 nativní ABI a teprve potom připojení k serveru a skutečné přehrávání. Pro Netflix
 je nutné nejdříve vyřešit JVM limit v překladu nebo funkční ART. Přidání prázdných
 tříd, vypnutí ověřování bytecode nebo nahrazení aplikace webem není řešení.
-Podrobné hranice každého modulu: [PadBridge 0.4](../PadBridge/docs/runtime-0.4.md).
+Podrobné hranice každého modulu: [PadBridge 0.4](https://github.com/PadTVos/PadBridge/blob/main/docs/runtime-0.4.md).
 
 ## Systém, ISO a Windows
 
@@ -106,6 +112,8 @@ Zástupce virtuálního PC ukazuje na 0.7; původní uživatelský qcow2 zůstá
 ![Dokončená instalace](evidence-0.7/install-end07.png)
 ![PadTV po startu z nainstalovaného disku](evidence-0.7/installed07.png)
 ![Windows WHPX: BIOS start](evidence-0.7/windows-home07.png)
+![Finální ISO: UEFI start s čistou NVRAM](evidence-0.7/final-uefi07.png)
+![Finální ISO: BIOS start ve Windows](evidence-0.7/final-bios07.png)
 
 Finální ISO: `padtv-0.7.0-amd64.iso`, **2 445 017 088 bajtů**.
 SHA-256: `58860a4ce0c1d666319387b1c269af469f500eb7703c63dc03839a872e5a99ec`.
