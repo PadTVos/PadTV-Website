@@ -34,9 +34,10 @@ komponentami PadBridge 0.4 a doplněnými testovacími závislostmi. BIOS/UEFI a
 instalace byly navíc provedeny se skutečným ISO PadTV 0.7. Testy neoslabují
 sandbox a Waydroid během Android testů neběžel.
 
-CI běží v Debian 13 kontejneru na Ubuntu hostu. Chromium dostává pouze cílené
-oprávnění AppArmor vytvořit vlastní user namespace podle
-[postupu upstream Chromium](https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md).
+CI běží v Debian 13 kontejneru na Ubuntu hostu. Pouze tento dočasný kontejner
+dostává přes Docker profil AppArmor umožňující vnořené user namespaces;
+globální pravidla hostu se nemění. Důvod omezení popisuje
+[upstream Chromium](https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md).
 Chromium sandbox i bubblewrap zůstávají zapnuté; nepoužívá se `--no-sandbox`.
 Test zvuku ověřuje skutečný PulseAudio server, místní VM PipeWire-pulse.
 
@@ -116,11 +117,11 @@ Zástupce virtuálního PC ukazuje na 0.7; původní uživatelský qcow2 zůstá
 ![Finální ISO: BIOS start ve Windows](evidence-0.7/final-bios07.png)
 
 Finální ISO: `padtv-0.7.0-amd64.iso`, **2 445 017 088 bajtů**.
-SHA-256: `58860a4ce0c1d666319387b1c269af469f500eb7703c63dc03839a872e5a99ec`.
+SHA-256: `81c75a42a10a73c49bd4d3576a870d3131df377c1efd7b7f0c2ee3a2c4fca063`.
 Ověřeno 782 MD5 a 782 SHA-256 záznamů, bootovací nabídky, kernel/initramfs,
 79 souborů instalovaného runtime proti SquashFS a kontrolní součet kopie Windows.
 Instalace byla provedena na kandidátu `8941aeab8d3ae7fdfd2dde0b37e717802c89e47f043a933deadbeda4527d61b6`;
-finální sestava doplňuje přesnější texty katalogu a diagnostiky. Instalační
+finální sestava doplňuje přesnější texty katalogu, diagnostiky a označení verze runtime. Instalační
 komponenty a runtime mají stejný zdroj; finální ISO má samostatně ověřený boot.
 
 Nevyzkoušeno na fyzickém zařízení: Wi-Fi/Bluetooth adaptéry, HDMI audio,
