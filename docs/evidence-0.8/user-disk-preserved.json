@@ -1,0 +1,21 @@
+{
+  "sha256_before": "33bfb41b3380e1921703d48d5d6b3f329f6671ce47710f6755d437a2839dc528",
+  "sha256_after": "33bfb41b3380e1921703d48d5d6b3f329f6671ce47710f6755d437a2839dc528",
+  "unchanged": true,
+  "settings_before": {
+    "name": "PadTV 0.7 Android Runtime & Multimedia",
+    "memory_mb": 16384,
+    "cpus": 4,
+    "iso": "dist/padtv-0.7.0-amd64.iso",
+    "disk_gb": 64,
+    "persistent": true
+  },
+  "settings_after": {
+    "name": "PadTV 0.8 Android Runtime Integration",
+    "memory_mb": 16384,
+    "cpus": 4,
+    "iso": "dist/padtv-0.8.0-amd64.iso",
+    "disk_gb": 64,
+    "persistent": true
+  }
+}

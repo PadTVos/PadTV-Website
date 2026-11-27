@@ -1,6 +1,6 @@
 # PadTV-Website
 
-Dokumentace PadTV 0.7 – Android Runtime & Multimedia.
+Dokumentace PadTV 0.8 – Android Runtime Integration.
 
 - [Architektura](docs/system-core.md)
 - [Store a repozitáře](docs/github-and-store.md)

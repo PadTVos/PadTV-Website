@@ -1,0 +1,79 @@
+{
+  "total": 219,
+  "windows": 122,
+  "rust": 7,
+  "linux": [
+    {
+      "suite": "integration",
+      "exit": 0,
+      "seconds": 17.734,
+      "tests": 14
+    },
+    {
+      "suite": "runtime05",
+      "exit": 0,
+      "seconds": 13.018,
+      "tests": 11
+    },
+    {
+      "suite": "runtime06",
+      "exit": 0,
+      "seconds": 6.291,
+      "tests": 7
+    },
+    {
+      "suite": "analyzer_unit",
+      "exit": 0,
+      "seconds": 0.118,
+      "tests": 5
+    },
+    {
+      "suite": "thirdparty06",
+      "exit": 0,
+      "seconds": 6.291,
+      "tests": 3
+    },
+    {
+      "suite": "resources07",
+      "exit": 0,
+      "seconds": 0.068,
+      "tests": 4
+    },
+    {
+      "suite": "audio_broker07",
+      "exit": 0,
+      "seconds": 0.118,
+      "tests": 2
+    },
+    {
+      "suite": "runtime07",
+      "exit": 0,
+      "seconds": 7.451,
+      "tests": 6
+    },
+    {
+      "suite": "media07",
+      "exit": 0,
+      "seconds": 33.998,
+      "tests": 10
+    },
+    {
+      "suite": "resources08",
+      "exit": 0,
+      "seconds": 0.069,
+      "tests": 3
+    },
+    {
+      "suite": "framework08",
+      "exit": 0,
+      "seconds": 15.286,
+      "tests": 14
+    },
+    {
+      "suite": "art08",
+      "exit": 0,
+      "seconds": 14.833,
+      "tests": 11
+    }
+  ]
+}
