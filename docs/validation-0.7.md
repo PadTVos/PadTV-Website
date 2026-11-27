@@ -34,11 +34,13 @@ komponentami PadBridge 0.4 a doplněnými testovacími závislostmi. BIOS/UEFI a
 instalace byly navíc provedeny se skutečným ISO PadTV 0.7. Testy neoslabují
 sandbox a Waydroid během Android testů neběžel.
 
-CI běží v Debian 13 kontejneru na Ubuntu hostu. Pouze tento dočasný kontejner
-dostává přes Docker profil AppArmor umožňující vnořené user namespaces;
-globální pravidla hostu se nemění. Důvod omezení popisuje
-[upstream Chromium](https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md).
-Chromium sandbox i bubblewrap zůstávají zapnuté; nepoužívá se `--no-sandbox`.
+CI běží v Debian 13 kontejneru na výslovně zvoleném hostu Ubuntu 22.04.
+Na novějším Ubuntu hostu WebView test selhal: audit prokázal zákaz `sys_admin`
+pro Chromium pod automaticky vnuceným profilem `unpriv_bwrap`. Podpora takového
+hostu není ověřena; cílový Debian 13 v KVM tuto chybu nemá. Kontext omezení
+popisuje [upstream Chromium](https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md).
+CI nemění pravidla AppArmor ani globální sysctl. Chromium sandbox i bubblewrap
+zůstávají zapnuté; nepoužívá se `--no-sandbox` a žádný test se nevynechává.
 Test zvuku ověřuje skutečný PulseAudio server, místní VM PipeWire-pulse.
 
 ## Skutečně ověřené nové funkce
