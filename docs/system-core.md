@@ -1,6 +1,6 @@
-# PadTV 0.5 – Android Runtime
+# PadTV 0.7 – Android Runtime & Multimedia
 
-PadTV je distribuce pro amd64 založená na Debianu 13. Systémové balíčky mají verzi 0.5.0 a PadBridge 0.2.0. Základ System Core, Wayland, systémové API a instalátor zůstávají zachované. Stav ověření: [validation.md](https://github.com/PadTVos/PadTV-OS/blob/main/docs/validation.md).
+PadTV je distribuce pro amd64 založená na Debianu 13. Systémové balíčky mají verzi 0.7.0 a PadBridge 0.4.0. Základ System Core, Wayland, systémové API a instalátor zůstávají zachované. Stav ověření: [validation.md](https://github.com/PadTVos/PadTV-OS/blob/main/docs/validation.md).
 
 ## Moduly a hranice
 
@@ -12,13 +12,14 @@ PadTV je distribuce pro amd64 založená na Debianu 13. Systémové balíčky ma
 
 Identita v `/etc/os-release` a `/usr/lib/os-release` patří PadTV. Debianí soubory
 jsou zachované pomocí `dpkg-divert`; odstranění `padtv-core` je obnoví.
-`ID=padtv`, `ID_LIKE=debian`, `VERSION_ID=0.5`, `DEBIAN_VERSION=13`.
+`ID=padtv`, `ID_LIKE=debian`, `VERSION_ID=0.7`, `DEBIAN_VERSION=13`.
 
 Uživatelská knihovna a profily webových aplikací leží v
 `~/.local/share/padtv/library`; nastavení v `~/.config/padtv`. YouTube je výchozí
 záznam knihovny, nikoli systémový balíček. Jeho odstranění i odstranění dat je
 stejné jako u jiné webové aplikace a při dalším startu se samo nevrací.
-Android APK a jejich data spravuje Waydroid; nejsou součástí systémového obrazu
+Originální APK a jejich soukromá data spravuje experimentální PadBridge.
+Oddělený Waydroid spravuje pouze APK, která uživatel výslovně instaloval do něj; nejsou součástí systémového obrazu
 Androidu. Waydroid používá `/var/lib/waydroid` a uživatelská data v domovském adresáři.
 
 ## Start a zotavení
